@@ -6,165 +6,182 @@ import MainLogin from './components/MainLogin'
 import MainSignUp from './components/MainSignUp'
 import MainPage from './components/MainPage';
 import Footer from './components/Footer';
-import data from './components/data/Data';
-import { easeInOutCubic } from './components/utils/Easing';
-import jump from './components/jump.js';
+import Filter from './components/Filter';
+import listingsData from './components/data/listingsData.js'
+import Listings from './components/Listings.js'
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
 
+  constructor() {
+    super()
     this.state = {
-      properties: data.properties,
-      activeProperty: data.properties[0],
-      filterIsVisible: false,
-      filterBedrooms: 'any',      
-      filterBathrooms: 'any',
-      filterCars: 'any',
-      filterSort: 'any',
-      priceFrom: 50000,
-      priceTo: 1000000,
-      filteredProperties: [],
-      isFiltering: false,
-    };
-
-    this.setActiveProperty = this.setActiveProperty.bind(this);
-  }
-
-  setActiveProperty(property, scroll) {
-    const { index } = property;
-
-    this.setState({
-      activeProperty: property,
-    });
-
-    if (scroll) {      
-      const target = `#card-${index}`;
-      jump(target, {
-        duration: 800,
-        easing: easeInOutCubic,
-      });
+      name: 'Joe',
+      listingsData,
+      city: 'All',
+      homeType: 'All',
+      bedrooms: 0,
+      min_price: 0,
+      max_price: 10000000,
+      min_floor_space: 0,
+      max_floor_space: 50000,
+      elevator: false,
+      finished_basement: false,
+      gym: false,
+      swimming_pool: false,
+      filteredData: listingsData,
+      populateFormsData: '',
+      sortby: 'price-dsc',
+      view: 'box',
+      search: ''
     }
+    this.change = this.change.bind(this)
+    this.filteredData = this.filteredData.bind(this)
+    this.populateForms = this.populateForms.bind(this)
+    this.changeView = this.changeView.bind(this)
   }
-
-  toggleFilter = e => {
-    const { filterIsVisible } = this.state;
-    e.preventDefault();
+  componentWillMount() {
+    var listingsData = this.state.listingsData.sort((a, b) => {
+      return a.price - b.price
+    })
     this.setState({
-      filterIsVisible: !filterIsVisible,
-    });
-  };
+      listingsData
+    })
+  }
+  change(event) {
+    var name = event.target.name;
+    var value = (event.target.type === 'checkbox') ? event.target.checked : event.target.value;
 
-  handleFilterChange = e => {
-    const { value, name } = e.target;
-    console.log(value, name);
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => {
-        this.filterProperties();
+    this.setState({
+      [name]: value
+    }, () => {
+      console.log(this.state)
+      this.filteredData()
+    })
+  }
+  changeView(viewName) {
+    this.setState({
+      view: viewName
+    })
+  }
+  filteredData() {
+    var newData = this.state.listingsData.filter((item) => {
+      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.floorSpace >= this.state.min_floor_space && item.floorSpace <= this.state.max_floor_space && item.rooms >= this.state.bedrooms
+    })
+
+    if (this.state.city != "All") {
+      newData = newData.filter((item) => {
+        return item.city == this.state.city
+      })
+    }
+
+    if (this.state.homeType != "All") {
+      newData = newData.filter((item) => {
+        return item.homeType == this.state.homeType
+      })
+    }
+
+    if (this.state.sortby == 'price-dsc') {
+      newData = newData.sort((a, b) => {
+        return a.price - b.price
+      })
+    }
+
+    if (this.state.sortby == 'price-asc') {
+      newData = newData.sort((a, b) => {
+        return b.price - a.price
+      })
+    }
+
+    if (this.state.search != '') {
+      newData = newData.filter((item) => {
+        var city = item.city.toLowerCase()
+        var searchText = this.state.search.toLowerCase()
+        var n = city.match(searchText)
+
+        if (n != null) {
+          return true
+        }
+      })
+    }
+
+    // Filter Checkboxes
+    if (this.state.elevator) {
+      newData = newData.filter((item) => {
+        return item.extras.includes('elevator') == this.state.elevator
+      })
+    }
+
+    if (this.state.swimming_pool) {
+      newData = newData.filter((item) => {
+        return item.extras.includes('pool') == this.state.swimming_pool
+      })
+    }
+
+    if (this.state.finished_basement) {
+      newData = newData.filter((item) => {
+        return item.extras.includes('basement') == this.state.finished_basement
+      })
+    }
+
+    if (this.state.gym) {
+      newData = newData.filter((item) => {
+        return item.extras.includes('gym') == this.state.gym
+      })
+    }
+
+    this.setState({
+      filteredData: newData
+    })
+  }
+  populateForms() {
+    // city
+    var cities = this.state.listingsData.map((item) => {
+      return item.city
+    })
+    cities = new Set(cities)
+    cities = [...cities].sort()
+
+    // homeType
+    var homeTypes = this.state.listingsData.map((item) => {
+      return item.homeType
+    })
+    homeTypes = new Set(homeTypes)
+    homeTypes = [...homeTypes].sort()
+
+    // bedrooms
+    var bedrooms = this.state.listingsData.map((item) => {
+      return item.rooms
+    })
+    bedrooms = new Set(bedrooms)
+    bedrooms = [...bedrooms].sort()
+
+    this.setState({
+      populateFormsData: {
+        homeTypes,
+        bedrooms,
+        cities
       }
-    );
-  };
-
-  filterProperties = () => {
-    const {
-      properties,
-      filterBedrooms,
-      filterBathrooms,
-      filterCars,
-      filterSort,
-      priceFrom,
-      priceTo,
-    } = this.state;
-    const isFiltering =
-      filterBedrooms !== 'any' ||
-      filterBathrooms !== 'any' ||
-      filterCars !== 'any' ||
-      priceFrom !== '0' ||
-      priceTo !== '1000001';
-  
-
-    const getFilteredProperties = propertiesList => {
-      const filteredProperties = propertiesList
-        .filter(
-          property =>
-            property.bedrooms === parseInt(filterBedrooms) ||
-            filterBedrooms === 'any'
-        )
-        .filter(
-          property =>
-            property.bathrooms === parseInt(filterBathrooms) ||
-            filterBathrooms === 'any'
-        )
-        .filter(
-          property =>
-            property.carSpaces === parseInt(filterCars) || filterCars === 'any'
-        )
-        .filter(
-          property => property.price >= priceFrom && property.price <= priceTo
-        );
-      
-      switch (filterSort) {
-        case '0':
-          filteredProperties.sort((a, b) => a.price - b.price);
-          break;
-        case '1':
-          filteredProperties.sort((a, b) => b.price - a.price);
-          break;
-        default:
-        
-          filteredProperties;
-      }
-
-      return filteredProperties;
-    };
-
-    this.setState({
-      filteredProperties: getFilteredProperties(properties),
-      activeProperty: getFilteredProperties(properties)[0] || properties[0],
-      isFiltering,
-    });
-  };
-
-  clearFilter = (e, form) => {
-    e.preventDefault();
-    console.log('Clear the filters!', e, form);
-
-    const { properties } = this.state;
-
-    const sortedProperties = properties.sort((a, b) => a.index - b.index);
-
-    console.log(sortedProperties);
-
-    this.setState({
-      properties: sortedProperties,
-      filterBedrooms: 'any',
-      filterBathrooms: 'any',
-      filterCars: 'any',
-      priceFrom: 50000,
-      priceTo: 1000000,
-      filteredProperties: [],
-      isFiltering: false,
-      activeProperty: properties[0],
-    });
-
-    form.current.reset();
-  };
-
+    }, () => {
+      // console.log(this.state)
+    })
+  }
   render() {
     return (
       <>
         <Router>
           <div>
             <Navbar />
+            <section id='content-area'>
+              <Filter change={this.change} globalState={this.state} populateAction={this.populateForms} />
+              <Listings listingsData={this.state.filteredData} change={this.change} globalState={this.state} changeView={this.changeView} />
+            </section>
             <br />
           </div>
           <Switch>
             <Route path='/signin' component={MainLogin} />
             <Route path='/signup' component={MainSignUp} />
-            <Route path='/' component={MainPage} />
+            {/* <Route path='/' component={MainPage} /> */}
           </Switch>
           <div>
             <Footer />
@@ -174,4 +191,5 @@ class App extends Component {
     )
   }
 }
+
 export default App;
