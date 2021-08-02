@@ -80,7 +80,7 @@ text-decoration: none;
 margin-left: 24px;
 &:hover {
 	transition: all 0.2s ease-in-out;
-	background: #fff;
+	background: #000080;
 	color: #808080;
 }
 `;
