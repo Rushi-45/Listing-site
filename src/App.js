@@ -12,7 +12,6 @@ import Rooms from './pages/Rooms';
 import SingleRoom from './pages/SingleRoom';
 import Error from './pages/Error';
 
-
 class App extends Component {
 
   render() {
