@@ -86,13 +86,13 @@ class Signup extends Component {
 			fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
-			borderRadius: "50px",
+			borderRadius: "3.12rem",
 			width: "45vh",
 			height: "3.125 vw",
 			maxWidth: "38vw",
-			maxHeight: "160px",
-			marginBottom: "20px",
-			marginTop: "28px",
+			maxHeight: "24.35vh",
+			marginBottom: "1.25rem",
+			marginTop: "1.75rem",
 		};
 
 		const verifyEmailStyle = {
