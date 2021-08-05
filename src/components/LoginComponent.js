@@ -79,7 +79,7 @@ class Login extends Component {
 		};
 
 		const head1Style = {
-			fontSize: "4.9vh",
+			fontSize: "4.2vh",
 			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
@@ -93,7 +93,7 @@ class Login extends Component {
 
 		const head4Style = {
 			// fontWeight: "bold",
-			fontSize: "3.3vh",
+			fontSize: "2.8vh",
 			textAlign: "left",
 		};
 
@@ -108,7 +108,7 @@ class Login extends Component {
 			// fontWeight: "bold",			
 			backgroundColor: "indigo",
 			borderRadius: "50px",
-			width: "40vh",
+			width: "20vh",
 			marginTop: "40px",
 			marginBottom: "25px",
 		};

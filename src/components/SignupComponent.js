@@ -71,7 +71,7 @@ class Signup extends Component {
 		};
 
 		const head1Style = {
-			fontSize:"4.9vh",
+			fontSize:"4.2vh",
 			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
@@ -86,7 +86,7 @@ class Signup extends Component {
 		const head2Style = {
 			// fontWeight: "",
 			alignSelf: "center",
-			fontSize: "4.9vh",
+			fontSize: "4.2vh",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "3.12rem",
 			width: "45vh",
@@ -99,15 +99,15 @@ class Signup extends Component {
 
 		const verifyEmailStyle = {
 			// fontWeight: "bold",
-			fontSize:"3.3vh",
+			fontSize: "2.8vh",
 			textAlign: "left",
-			marginTop: "36px",
-			marginBottom: "22px",
+			marginTop: "40px",
+			marginBottom: "30px",
 		};
 
 		const head4Style = {
 			// fontWeight: "bold",
-			fontSize: "3.3vh",
+			fontSize: "2.8vh",
 			textAlign: "left",
 		};
 
@@ -122,7 +122,7 @@ class Signup extends Component {
 			// fontWeight: "bold",			
 			backgroundColor: "indigo",
 			borderRadius: "50px",
-			width: "40vh",
+			width: "32vh",
 			marginTop: "40px",
 			marginBottom: "25px",
 		};
