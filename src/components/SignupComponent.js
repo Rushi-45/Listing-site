@@ -71,7 +71,8 @@ class Signup extends Component {
 		};
 
 		const head1Style = {
-			fontWeight: "bold",
+			fontSize:"4.9vh",
+			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "50px",
@@ -83,8 +84,9 @@ class Signup extends Component {
 		};
 
 		const head2Style = {
-			fontWeight: "bold",
+			// fontWeight: "",
 			alignSelf: "center",
+			fontSize: "4.9vh",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "3.12rem",
 			width: "45vh",
@@ -96,14 +98,16 @@ class Signup extends Component {
 		};
 
 		const verifyEmailStyle = {
-			fontWeight: "bold",
+			// fontWeight: "bold",
+			fontSize:"3.3vh",
 			textAlign: "left",
 			marginTop: "36px",
 			marginBottom: "22px",
 		};
 
 		const head4Style = {
-			fontWeight: "bold",
+			// fontWeight: "bold",
+			fontSize: "3.3vh",
 			textAlign: "left",
 		};
 
@@ -115,10 +119,10 @@ class Signup extends Component {
 		};
 
 		const buttonStyle = {
-			fontWeight: "bold",
+			// fontWeight: "bold",			
 			backgroundColor: "indigo",
 			borderRadius: "50px",
-			width: "49h",
+			width: "40vh",
 			marginTop: "40px",
 			marginBottom: "25px",
 		};
@@ -224,12 +228,12 @@ class Signup extends Component {
 										</FormGroup>
 									</Col>
 									<Button type="submit" style={buttonStyle}>
-										<h2>Finish Sign Up</h2>
+										<h4>Finish Sign Up</h4>
 									</Button>
 								</Form>
-								<h2>Sign Up With: </h2>
+								<h4>Sign Up With: </h4>
 							</Jumbotron>
-							<h2
+							<h4
 								style={{
 									color: "white",
 									marginBottom: "100px",
@@ -237,7 +241,7 @@ class Signup extends Component {
 							>
 								Already a Member ?{" "}
 								<Link to="/signin">Sign In</Link>
-							</h2>
+							</h4>
 						</center>
 					</Col>
 				</Row>

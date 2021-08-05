@@ -79,39 +79,40 @@ class Login extends Component {
 		};
 
 		const head1Style = {
-			fontWeight: "bold",
+			fontSize: "4.9vh",
+			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "50px",
-			width: "20vh",
-			height: "60px",
+			width: "28vh",
 			maxWidth: "200px",
-			maxHeight: "150px",
+			maxHeight: "250px",
+			height: "60px",
 			marginBottom: "20px",
 		};
 
 		const head4Style = {
-			fontWeight: "bold",
+			// fontWeight: "bold",
+			fontSize: "3.3vh",
 			textAlign: "left",
-			margin: "auto",
 		};
 
 		const inputStyle = {
 			backgroundColor: "#EBEBEB",
 			borderRadius: "50px",
-			margin: "15px 0px",
 			fontSize: "24px",
 			maxWidth: "400px",
 		};
 
 		const buttonStyle = {
-			fontWeight: "bold",
+			// fontWeight: "bold",			
 			backgroundColor: "indigo",
 			borderRadius: "50px",
-			width: "125px",
+			width: "40vh",
 			marginTop: "40px",
 			marginBottom: "25px",
 		};
+
 
 		return (
 			<Container>
@@ -164,19 +165,19 @@ class Login extends Component {
 										</FormGroup>
 									</Col>
 									<Button type="submit" style={buttonStyle}>
-										<h2>Get In</h2>
+										<h4>Get In</h4>
 									</Button>
 								</Form>
-								<h2>Sign in With: </h2>
+								<h4>Sign in With: </h4>
 							</Jumbotron>
-							<h2
+							<h4
 								style={{
 									color: "white",
 									marginBottom: "100px",
 								}}
 							>
 								New Member ? <Link to="/signup">Sign Up</Link>
-							</h2>
+							</h4>
 						</center>
 					</Col>
 				</Row>

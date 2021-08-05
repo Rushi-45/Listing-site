@@ -9,7 +9,7 @@ class RootLogo extends Component {
 				<div className="col justify-content-md-center">
 					<div className="row-1"></div>
 					<div className="row-4 justify-content-md-center text-center">
-						<h1
+						<h2
 							className="root-access"
 							style={{
 								fontSize: "72px",
@@ -18,7 +18,7 @@ class RootLogo extends Component {
 							}}
 						>
 							Welcome to Site Listing
-						</h1>
+						</h2>
 					</div>
 					<div className="row-1"></div>
 					<div className="row-6">
