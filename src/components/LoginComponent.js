@@ -73,22 +73,23 @@ class Login extends Component {
 		const jumbotronStyle = {
 			backgroundColor: "white",
 			borderRadius: "50px",
-			marginTop: "100px",
-			marginBottom: "80px",
-			maxWidth: "475px",
+			marginTop: "30px",
+			marginBottom: "30px",
+			maxWidth: "505px",
 		};
 
 		const head1Style = {
-			fontSize: "4.2vh",
+			fontSize: "3.4vh",
 			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "50px",
-			width: "28vh",
+			width: "17vh",
 			maxWidth: "200px",
 			maxHeight: "250px",
 			height: "60px",
 			marginBottom: "20px",
+			paddingTop: "15px"
 		};
 
 		const head4Style = {
@@ -108,7 +109,7 @@ class Login extends Component {
 			// fontWeight: "bold",			
 			backgroundColor: "indigo",
 			borderRadius: "50px",
-			width: "20vh",
+			width: "17vh",
 			marginTop: "40px",
 			marginBottom: "25px",
 		};
@@ -132,7 +133,7 @@ class Login extends Component {
 								>
 									<Col>
 										<FormGroup>
-											<h4 style={head4Style}>Email</h4>
+											<h5 style={head4Style}>Email</h5>
 											<div align="left">
 												<Input
 													type="email"
@@ -165,19 +166,19 @@ class Login extends Component {
 										</FormGroup>
 									</Col>
 									<Button type="submit" style={buttonStyle}>
-										<h4>Get In</h4>
+										<h5>Get In</h5>
 									</Button>
 								</Form>
-								<h4>Sign in With: </h4>
+								<h5>Sign in With: </h5>
 							</Jumbotron>
-							<h4
+							<h5
 								style={{
 									color: "white",
-									marginBottom: "100px",
+									marginBottom: "30px",
 								}}
 							>
 								New Member ? <Link to="/signup">Sign Up</Link>
-							</h4>
+							</h5>
 						</center>
 					</Col>
 				</Row>

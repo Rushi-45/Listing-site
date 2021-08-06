@@ -65,31 +65,32 @@ class Signup extends Component {
 		const jumbotronStyle = {
 			backgroundColor: "white",
 			borderRadius: "50px",
-			marginTop: "100px",
-			marginBottom: "80px",
+			marginTop: "30px",
+			marginBottom: "30px",
 			maxWidth: "560px",
 		};
 
 		const head1Style = {
-			fontSize:"4.2vh",
+			fontSize: "3.4vh",
 			// fontWeight: "bold",
 			alignSelf: "center",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "50px",
-			width: "28vh",
+			width: "17vh",
 			maxWidth: "200px",
 			maxHeight: "250px",
 			height: "60px",
 			marginBottom: "20px",
+			paddingTop: "15px"
 		};
 
 		const head2Style = {
 			// fontWeight: "",
 			alignSelf: "center",
-			fontSize: "4.2vh",
+			fontSize: "3.4vh",
 			backgroundColor: "#EBEBEB",
 			borderRadius: "3.12rem",
-			width: "45vh",
+			width: "27vh",
 			height: "3.125 vw",
 			maxWidth: "38vw",
 			maxHeight: "24.35vh",
@@ -228,20 +229,20 @@ class Signup extends Component {
 										</FormGroup>
 									</Col>
 									<Button type="submit" style={buttonStyle}>
-										<h4>Finish Sign Up</h4>
+										<h5>Finish Sign Up</h5>
 									</Button>
 								</Form>
-								<h4>Sign Up With: </h4>
+								<h5>Sign Up With: </h5>
 							</Jumbotron>
-							<h4
+							<h5
 								style={{
 									color: "white",
-									marginBottom: "100px",
+									marginBottom: "30px",
 								}}
 							>
 								Already a Member ?{" "}
 								<Link to="/signin">Sign In</Link>
-							</h4>
+							</h5>
 						</center>
 					</Col>
 				</Row>

@@ -8,7 +8,7 @@ export class Footer extends Component {
                 <Form>
                     <Row className='formcolor'>
                         <Col className="col-md-4  mt-3">
-                            <h2>Contact Us</h2>
+                            <h4>Contact Us</h4>
                             <br />
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>
@@ -30,7 +30,7 @@ export class Footer extends Component {
                             </Button>
                         </Col>
                         <Col className="col-md-3 ml-5 mt-3">
-                            <h2>Topics</h2>
+                            <h4>Topics</h4>
                             <br />
                             <ul>
                                 <li>One</li>
@@ -42,7 +42,7 @@ export class Footer extends Component {
                                 <li>Seven</li>
                             </ul>
                         </Col>
-                        <Col className="col-md-4  mt-5">
+                        <Col className="col-md-4 mt-5 footer-image">
                             <img src={require('../images/form2.jpg').default} />
                         </Col>
                     </Row>

@@ -314,6 +314,14 @@ h6 {
     width: 100%;
   }
 }
+
+.footer-image{
+  /* padding-top: 100px; */
+  width: 10vw;
+  /* height: 100vh; */
+  padding-bottom: 30px;
+}
+
 /*end of services */
 /* featured rooms */
 
@@ -321,7 +329,7 @@ h6 {
   padding: 5rem 0;
 }
 .featured-rooms-center {
-  width: 80vw;
+  width: 70vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
