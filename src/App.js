@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainLogin from './components/MainLogin'
 import MainSignUp from './components/MainSignUp'
 import Footer from './components/Footer'
+import Footer2 from './components/Footer2'
 import Home from './components/pages/Home'
 import Navbar2 from './components/Navbar2';
 import Home2 from './pages/Home2';
@@ -32,7 +33,7 @@ class App extends Component {
             <Route component={Error} />
           </Switch>
           <div>
-            <Footer />
+            <Footer2 />
           </div>
         </Router>
       </>
